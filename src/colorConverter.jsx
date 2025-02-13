@@ -52,8 +52,8 @@ function ColorConverter() {
 
   return (
     <div className="color-converter__container">
+      <h1 className="color-converter__title">Конвертер цветов</h1>
       <div className="color-converter" style={{ backgroundColor: hex }}>
-        <h1 className="color-converter__title">Конвертер цветов</h1>
         <div className="color-converter__inputs">
           <label className="color-converter__label">RGB:</label>
           {rgb.map((value, index) => (
@@ -99,6 +99,17 @@ function ColorConverter() {
             имеет значение от 0 до 255 (например, rgb(255, 0, 0) — красный).
           </p>
         </div>
+      </div>
+      <div className="color-converter__creator">
+        <p className="color-converter__creator-text">
+          Создано{" "}
+          <a
+            href="https://github.com/anastaciach/color-converter"
+            className="color-converter__creator-link"
+          >
+            anastaciach
+          </a>
+        </p>
       </div>
     </div>
   );
