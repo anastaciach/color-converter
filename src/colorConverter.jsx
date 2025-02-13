@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./ColorConverter.css";
+import "./normalize.css";
+import "./colorConverter.css";
 
 function ColorConverter() {
   const [rgb, setRgb] = useState(["", "", ""]);
@@ -7,9 +8,13 @@ function ColorConverter() {
 
   const rgbToHex = (r, g, b) => {
     if (r > 255 || g > 255 || b > 255) return "";
-    return `#${r.toString(16).padStart(2, "0")}${g
-      .toString(16)
-      .padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+
+    const toHex = (c) => {
+      let hex = c.toString(16);
+      return hex.length === 1 ? "0" + hex : hex;
+    };
+
+    return "#" + toHex(r) + toHex(g) + toHex(b);
   };
 
   const hexToRgb = (hex) => {
@@ -46,29 +51,55 @@ function ColorConverter() {
   };
 
   return (
-    <div className="color-converter" style={{ backgroundColor: hex }}>
-      <h2>Конвертер цветов</h2>
-      <label>RGB:</label>
-      <div>
-        {rgb.map((value, index) => (
+    <div className="color-converter__container">
+      <div className="color-converter" style={{ backgroundColor: hex }}>
+        <h1 className="color-converter__title">Конвертер цветов</h1>
+        <div className="color-converter__inputs">
+          <label className="color-converter__label">RGB:</label>
+          {rgb.map((value, index) => (
+            <input
+              key={index}
+              type="text"
+              value={value}
+              onChange={(e) => handleRgbChange(index, e.target.value)}
+              placeholder={["R", "G", "B"][index]}
+              maxLength={3}
+            />
+          ))}
+        </div>
+        <div className="color-converter__inputs">
+          <label className="color-converter__label">HEX:</label>
           <input
-            key={index}
             type="text"
-            value={value}
-            onChange={(e) => handleRgbChange(index, e.target.value)}
-            placeholder={["R", "G", "B"][index]}
-            maxLength={3}
+            value={hex}
+            onChange={handleHexChange}
+            placeholder="#FF0000"
+            maxLength={7}
           />
-        ))}
+        </div>
       </div>
-      <label>HEX:</label>
-      <input
-        type="text"
-        value={hex}
-        onChange={handleHexChange}
-        placeholder="#FF0000"
-        maxLength={7}
-      />
+      <div className="color-converter__info">
+        <div className="color-converter__info-block">
+          <h2 className="color-converter__info-title">
+            Что такое конвертер цветов?
+          </h2>
+          <p className="color-converter__info-text">
+            Конвертер цветов — это инструмент, который позволяет преобразовывать
+            цвета из одного формата в другой. Наиболее распространенные форматы
+            — HEX (шестнадцатеричный) и RGB (красный, зеленый, синий).
+          </p>
+        </div>
+
+        <div className="color-converter__info-block">
+          <h2 className="color-converter__info-title">Форматы цветов</h2>
+          <p className="color-converter__info-text">
+            HEX — это шестнадцатеричное представление цвета, состоящее из шести
+            символов (например, #FF0000 — красный).RGB — это десятичное
+            представление цвета, где каждая компонента (красный, зеленый, синий)
+            имеет значение от 0 до 255 (например, rgb(255, 0, 0) — красный).
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,16 +1,54 @@
+h1{
+  font-size: 1.476rem;
+}
+h2 {
+font-size:1.2rem;
+}
+h3 {
+font-size: 1.296rem;
+}
+body{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  min-height: 100%;
+  margin: 0;
+  /* background-color: #f0f0f0; */
+  background-image: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  background-image: radial-gradient(circle, #f0f0f0, #e0e0e0);
+  
+}
+.color-converter__container{
+  margin:0  2rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
 .color-converter {
-    width: 300px;
+    min-height: 14rem;
+    max-width: 500px;
     padding: 20px;
     margin: 50px auto;
-    text-align: center;
+    /* text-align: center; */
     background: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
   }
-  
+  .color-converter__title{
+    text-align: center;
+    margin: 0px 0 1rem;
+  }
+  .color-converter__inputs{
+    display:flex;
+  }
+  .color-converter__label{
+    align-self:center;
+    padding-right: 15px;
+  }
   input {
-    width: 80%;
+    width: 100%;
     padding: 10px;
     margin: 10px 5px;
     font-size: 16px;
@@ -18,3 +56,34 @@
     border: 1px solid #ccc;
     border-radius: 5px;
   }
+  @media (max-width: 400px) { 
+    .color-converter__container{
+      margin:0  0.5rem;
+    }
+    .color-converter__inputs{
+        flex-direction: column;
+    }
+    .color-converter__label{
+        padding-right:0px;
+        margin-bottom: 5px;
+    }
+}
+.color-converter__info {
+  display: flex; /* Располагаем блоки рядом */
+  flex-direction: column;
+  flex-wrap: wrap; /* Переносим блоки на новую строку при необходимости */
+  margin-top: 20px;
+}
+
+.color-converter__info-block {
+  flex: 1 0 45%; 
+  margin: 10px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); 
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.color-converter__info-title {
+  margin-bottom: 10px;
+}
