@@ -20,9 +20,30 @@ function ColorConverter() {
     return [r, g, b];
   };
 
-  const handleRgbChange = () => {};
+  const handleRgbChange = (index, value) => {
+    let newValue = value.replace(/[^0-9]/g, "");
+    if (newValue > 255) newValue = "255";
+    const newRgb = [...rgb];
+    newRgb[index] = newValue;
+    setRgb(newRgb);
 
-  const handleHexChange = () => {};
+    if (newRgb.every((num) => num !== "")) {
+      setHex(rgbToHex(...newRgb.map(Number)));
+    } else {
+      setHex("");
+    }
+  };
+
+  const handleHexChange = (e) => {
+    let value = e.target.value.replace(/[^0-9A-Fa-f]/g, "").toUpperCase();
+    if (value.length > 6) return;
+    setHex("#" + value);
+    if (value.length === 6) {
+      setRgb(hexToRgb(value).map(String));
+    } else {
+      setRgb(["", "", ""]);
+    }
+  };
 
   return (
     <div className="color-converter" style={{ backgroundColor: hex }}>

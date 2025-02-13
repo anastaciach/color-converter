@@ -1,0 +1,20 @@
+.color-converter {
+    width: 300px;
+    padding: 20px;
+    margin: 50px auto;
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 5px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
