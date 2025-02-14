@@ -1,8 +1,19 @@
-# React + Vite
+# Конвертер цветов
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Конвертер цветов - это веб-приложение,которое позволяет конвертировать цвета между форматами RGB и HEX. Проект создан с использованием React и Vite.
+Посмотреть демо можно по ссылке: [https://anastaciach.github.io/color-converter/](https://anastaciach.github.io/color-converter/)
+![alt text](image.png)
 
-Currently, two official plugins are available:
+## Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Конвертация из RGB в HEX.
+- Конвертация из HEX в RGB.
+- Автоматическое обновление фона при изменении цвета.
+- Валидация вводимых значений (RGB: 0-255, HEX: 0-9 и A-F).
+- Информация о форматах цветов и их использовании.
+
+## Как использовать
+
+1. Введите значения RGB (каждое значение от 0 до 255) в соответствующие поля, и HEX-значение будет автоматически рассчитано.
+2. Введите HEX-значение (например, #FF0000), и RGB-значение будет автоматически рассчитано.
+3. Фон страницы изменится в соответствии с выбранным цветом.
